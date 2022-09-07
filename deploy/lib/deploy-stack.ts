@@ -73,7 +73,7 @@ export class DeployStack extends cdk.Stack {
           cdk.aws_cloudfront.SecurityPolicyProtocol.TLS_V1_2_2021,
         errorResponses: [
           {
-            httpStatus: 404,
+            httpStatus: 403,
             responseHttpStatus: 404,
             responsePagePath: "/404.html",
             ttl: cdk.Duration.minutes(30),
