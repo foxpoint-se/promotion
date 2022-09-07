@@ -1,15 +1,14 @@
 .container {
-  padding: 0 2rem;
 }
 
 .main {
   min-height: 100vh;
-  padding: 4rem 0;
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background: linear-gradient(rgb(216, 160, 39) 0%, rgb(221, 177, 80) 30%, rgb(219, 184, 108) 55%, rgb(211, 191, 149));
 }
 
 .footer {
