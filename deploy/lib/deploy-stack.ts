@@ -1,16 +1,23 @@
-import * as cdk from 'aws-cdk-lib';
-import { Construct } from 'constructs';
-// import * as sqs from 'aws-cdk-lib/aws-sqs';
+import * as cdk from "aws-cdk-lib";
+import { Construct } from "constructs";
 
 export class DeployStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
-    // The code that defines your stack goes here
+    const siteBucket = new cdk.aws_s3.Bucket(this, "PromotionSiteBucket", {
+      publicReadAccess: true,
+      removalPolicy: cdk.RemovalPolicy.DESTROY,
+      websiteIndexDocument: "index.html",
+    });
 
-    // example resource
-    // const queue = new sqs.Queue(this, 'DeployQueue', {
-    //   visibilityTimeout: cdk.Duration.seconds(300)
-    // });
+    const deployment = new cdk.aws_s3_deployment.BucketDeployment(
+      this,
+      "PromotionSiteDeployment",
+      {
+        sources: [cdk.aws_s3_deployment.Source.asset("../out")],
+        destinationBucket: siteBucket,
+      }
+    );
   }
 }
