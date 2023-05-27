@@ -3,13 +3,11 @@
 ## Develop
 
 ```
-yarn dev
+make web-dev
 ```
 
 ## Deploy
 
 ```
-yarn build
-cd deploy
-yarn cdk deploy
+make deploy
 ```

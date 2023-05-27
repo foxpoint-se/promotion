@@ -107,7 +107,7 @@ export class DeployStack extends cdk.Stack {
 
     // Deploy site contents to S3 bucket
     new cdk.aws_s3_deployment.BucketDeployment(this, "DeployWithInvalidation", {
-      sources: [cdk.aws_s3_deployment.Source.asset("../out")],
+      sources: [cdk.aws_s3_deployment.Source.asset("../web/out")],
       destinationBucket: siteBucket,
       distribution,
       distributionPaths: ["/*"],

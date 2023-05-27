@@ -22,26 +22,26 @@ body {
 
 
 .pulsating-gradient {
-  background: linear-gradient(358deg, #cd9dde, #9480cd);
+  background: linear-gradient(358deg, #dec9e5, #8266d4);
   background-size: 400% 400%;
 
-  -webkit-animation: AnimationName 9s ease infinite;
-  -moz-animation: AnimationName 9s ease infinite;
-  animation: AnimationName 9s ease infinite;
+  -webkit-animation: AnimationName 15s ease infinite;
+  -moz-animation: AnimationName 15s ease infinite;
+  animation: AnimationName 15s ease infinite;
 }
 
 @-webkit-keyframes AnimationName {
-  0%{background-position:0% 10%}
-  50%{background-position:100% 91%}
-  100%{background-position:0% 10%}
+  0%{background-position:0% 32%}
+  50%{background-position:100% 69%}
+  100%{background-position:0% 32%}
 }
 @-moz-keyframes AnimationName {
-  0%{background-position:0% 10%}
-  50%{background-position:100% 91%}
-  100%{background-position:0% 10%}
+  0%{background-position:0% 32%}
+  50%{background-position:100% 69%}
+  100%{background-position:0% 32%}
 }
 @keyframes AnimationName {
-  0%{background-position:0% 10%}
-  50%{background-position:100% 91%}
-  100%{background-position:0% 10%}
+  0%{background-position:0% 32%}
+  50%{background-position:100% 69%}
+  100%{background-position:0% 32%}
 }
