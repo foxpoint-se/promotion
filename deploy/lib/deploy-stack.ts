@@ -112,5 +112,18 @@ export class DeployStack extends cdk.Stack {
       distribution,
       distributionPaths: ["/*"],
     });
+
+    new cdk.aws_route53_patterns.HttpsRedirect(this, "RedirectToSite", {
+      recordNames: [domainName],
+      targetDomain: siteDomain,
+      zone: cdk.aws_route53.HostedZone.fromHostedZoneAttributes(
+        this,
+        "HostedZone",
+        {
+          hostedZoneId: zone.hostedZoneId,
+          zoneName: domainName,
+        }
+      ),
+    });
   }
 }
