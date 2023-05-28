@@ -10,6 +10,11 @@ export default function Home() {
         <p className="mt-14 md:text-3xl text-lg text-gray-700 text-center">
           Autonomous underwater vehicles.
         </p>
+        <p className="mt-12">
+          <a className="text-gray-700 text-sm" href="https://app.foxpoint.se">
+            [Ground control]
+          </a>
+        </p>
       </div>
     </main>
   );
