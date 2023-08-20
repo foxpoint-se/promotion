@@ -6,6 +6,24 @@ const siteSubDomain = "www";
 const name = "PromotionSite";
 const pathToDist = "../docs/dist";
 
+const handlerString = `
+function handler(event) {
+  var request = event.request;
+  var uri = request.uri;
+  
+  // Check whether the URI is missing a file name.
+  if (uri.endsWith('/')) {
+    request.uri += 'index.html';
+  } 
+  // Check whether the URI is missing a file extension.
+  else if (!uri.includes('.')) {
+    request.uri += '/index.html';
+  }
+  
+  return request;
+}
+`;
+
 export class DeployStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
@@ -62,6 +80,10 @@ export class DeployStack extends cdk.Stack {
       value: certificate.certificateArn,
     });
 
+    const cfFunction = new cdk.aws_cloudfront.Function(this, "Function", {
+      code: cdk.aws_cloudfront.FunctionCode.fromInline(handlerString),
+    });
+
     // CloudFront distribution
     const distribution = new cdk.aws_cloudfront.Distribution(
       this,
@@ -89,6 +111,12 @@ export class DeployStack extends cdk.Stack {
             cdk.aws_cloudfront.AllowedMethods.ALLOW_GET_HEAD_OPTIONS,
           viewerProtocolPolicy:
             cdk.aws_cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
+          functionAssociations: [
+            {
+              eventType: cdk.aws_cloudfront.FunctionEventType.VIEWER_REQUEST,
+              function: cfFunction,
+            },
+          ],
         },
       }
     );
