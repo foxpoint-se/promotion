@@ -1,4 +1,7 @@
 /** @type {import('tailwindcss').Config} */
+
+const defaultTheme = require("tailwindcss/defaultTheme");
+
 module.exports = {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
@@ -10,6 +13,9 @@ module.exports = {
         lg: "2rem",
         xl: "3rem",
         "2xl": "4rem",
+      },
+      fontFamily: {
+        sans: ["Mulish", ...defaultTheme.fontFamily.sans],
       },
     },
   },
