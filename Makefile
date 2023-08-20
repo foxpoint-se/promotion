@@ -23,5 +23,5 @@ cdk-deploy-docs:
 
 deploy: setup build-docs cdk-deploy-docs		## deploy everything
 
-dev:		## start web dev server (localhost:3000)
+dev:		## start dev server (localhost:3000)
 	cd docs && yarn dev

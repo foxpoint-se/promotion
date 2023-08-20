@@ -3,7 +3,7 @@
 ## Develop
 
 ```
-make web-dev
+make dev
 ```
 
 ## Deploy
