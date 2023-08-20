@@ -7,21 +7,21 @@ help:
 
 .DEFAULT_GOAL := help
 
-setup-web:
-	cd web && yarn
+setup-docs:
+	cd docs && yarn
 
 setup-deploy:
 	cd deploy && yarn
 
-setup: setup-web setup-deploy		## install and setup everything for development
+setup: setup-docs setup-deploy		## install and setup everything for development
 
-build-web:
-	cd web && yarn build
+build-docs:
+	cd docs && yarn build
 
-cdk-deploy-web:
+cdk-deploy-docs:
 	cd deploy && yarn cdk deploy
 
-deploy: setup build-web cdk-deploy-web		## deploy everything
+deploy: setup build-docs cdk-deploy-docs		## deploy everything
 
-web-dev:		## start web dev server (localhost:3000)
-	cd web && yarn dev
+dev:		## start web dev server (localhost:3000)
+	cd docs && yarn dev

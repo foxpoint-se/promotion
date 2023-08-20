@@ -4,6 +4,7 @@ import { Construct } from "constructs";
 const domainName = "foxpoint.se";
 const siteSubDomain = "www";
 const name = "PromotionSite";
+const pathToDist = "../docs/dist";
 
 export class DeployStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
@@ -107,7 +108,7 @@ export class DeployStack extends cdk.Stack {
 
     // Deploy site contents to S3 bucket
     new cdk.aws_s3_deployment.BucketDeployment(this, "DeployWithInvalidation", {
-      sources: [cdk.aws_s3_deployment.Source.asset("../web/out")],
+      sources: [cdk.aws_s3_deployment.Source.asset(pathToDist)],
       destinationBucket: siteBucket,
       distribution,
       distributionPaths: ["/*"],
