@@ -1,0 +1,27 @@
+---
+import { getCollection } from "astro:content";
+import DocsLayout from "../../layouts/DocsLayout.astro";
+
+export async function getStaticPaths() {
+  const docs = await getCollection("docs");
+  return docs.map((entry) => ({
+    params: { doc: entry.slug},
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+// const { Content, headings } = await entry.render();
+---
+
+<DocsLayout title="What's new">
+  <article>
+    <h1>
+      <!-- {entry.data.title} -->
+      korv
+    </h1>
+    <!-- <p>Published {entry.data.date.toDateString()} by {entry.data.author}</p> -->
+    korv
+    <!-- <Content /> -->
+  </article>
+</DocsLayout>
