@@ -2,6 +2,11 @@
 import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 
+const shorten = (str: string, maxLen: number, separator = " ") => {
+  if (str.length <= maxLen) return str;
+  return str.substring(0, str.lastIndexOf(separator, maxLen));
+};
+
 export async function getStaticPaths() {
   const docs = await getCollection("docs");
   return docs.map((entry) => ({
@@ -11,17 +16,13 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props;
-const { Content, headings } = await entry.render();
+const { Content } = await entry.render();
+const description = shorten(entry.body, 155) + "...";
 ---
 
-<Layout title="What's new">
+<Layout title={entry.data.title} description={description}>
   <main>
-    <article class="px-md">
-      <div class="mt-lg mb-md">
-        <h1 class="text-4xl font-bold text-gradient-2">
-          {entry.data.title}
-        </h1>
-      </div>
+    <article class="px-md mb-xl max-w-3xl mx-auto">
       <Content />
     </article>
   </main>
