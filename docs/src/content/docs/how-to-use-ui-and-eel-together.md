@@ -31,7 +31,7 @@ title: How to use the UI and Eel together
    - by searching for `Tabby` after pressing the `Windows` button on your keyboard.
 1. Type `ssh eel` and press `enter`.
 1. If you get something like
-   ```
+   ```bash
    ubuntu@ubuntu >
    ```
    you're good. If you get anything else, I can't help you :)

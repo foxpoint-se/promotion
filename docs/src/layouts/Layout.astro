@@ -1,18 +1,32 @@
 ---
+import "../styles/base.css";
+
 interface Props {
   title: string;
+  description: string;
+  imageUrl?: string;
 }
 
-const { title } = Astro.props;
+const baseUrl = "https://www.foxpoint.se";
+
+const fallbackImage =
+  "https://www.foxpoint.se/images/foxpoint_logo_outline.svg";
+
+const { title, imageUrl = fallbackImage, description } = Astro.props;
+const currentPath = Astro.url.pathname;
+const fullPageUrl = `${baseUrl}${currentPath}`;
 ---
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Foxpoint - Autonomous underwater vehicles." />
+    <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={imageUrl} />
+    <meta property="og:url" content={fullPageUrl} />
     <title>{title}</title>
   </head>
   <body>
@@ -23,8 +37,8 @@ const { title } = Astro.props;
         </a>
       </div>
       <div class="flex-none">
-        <ul class="menu menu-horizontal px-1">
-          <li><a href="/docs">Docs</a></li>
+        <ul class="px-md">
+          <li><a class="btn btn-ghost" href="/docs">Docs</a></li>
         </ul>
       </div>
     </div>
