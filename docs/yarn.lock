@@ -3892,6 +3892,11 @@ update-browserslist-db@^1.0.11:
     escalade "^3.1.1"
     picocolors "^1.0.0"
 
+user-agent-data-types@^0.3.1:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/user-agent-data-types/-/user-agent-data-types-0.3.1.tgz#9668a857f9651b272afd8be30c901ad66f36d0cb"
+  integrity sha512-vS7pZmuEVPlf2CQf+PfNbwWJZA4aQAEa8sH7xhMrjZ1zXNvW7HHEdzmSvI7z/qyyIRVD50DEi4ckuzZcebKHGg==
+
 util-deprecate@^1.0.1, util-deprecate@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/util-deprecate/-/util-deprecate-1.0.2.tgz#450d4dc9fa70de732762fbd2d4a28981419a0ccf"
