@@ -18,6 +18,16 @@
   background-color: white;
 }
 
+.search-input-button {
+  @apply md:input md:input-bordered md:input-sm md:w-64 md:flex md:items-center md:cursor-text;
+}
+
+@media (max-width: 767px) {
+  .search-input-button {
+    @apply btn btn-circle btn-ghost;
+  }
+}
+
 /* Article below */
 
 article h1 {

@@ -31,12 +31,17 @@ export const Search = () => {
         role="searchbox"
         // ref={searchButtonRef}
         // className="rounded-full border border-neutral-400 w-64 h-lg flex items-center pr-sm pl-md text-neutral-500 cursor-text"
-        className="input input-bordered input-sm w-64 max-w-2xl flex items-center cursor-text"
+        // className="btn btn-circle btn-ghost md:input md:input-bordered md:input-sm md:w-64 flex items-center md:cursor-text"
+        className="search-input-button"
         onClick={handleClick}
       >
-        <div className="flex justify-between grow items-center">
-          <span className="text-neutral-400">Search</span>
-          <SearchIcon />
+        <div className="flex justify-between md:grow items-center">
+          <span className="text-neutral-400 hidden md:inline-block">
+            Search
+          </span>
+          <span>
+            <SearchIcon />
+          </span>
         </div>
       </button>
       <dialog id="search-modal" className={`modal`} ref={dialogRef}>
@@ -47,7 +52,7 @@ export const Search = () => {
         >
           <input
             type="text"
-            placeholder="Type here"
+            placeholder="Search here"
             className="input input-bordered w-full"
           />
           {/* <p className="py-4">
