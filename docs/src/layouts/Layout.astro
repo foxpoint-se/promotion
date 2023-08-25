@@ -1,5 +1,8 @@
 ---
-import { Search } from "../components/Search";
+import { getCollection } from "astro:content";
+import { remark } from "remark";
+import strip from "strip-markdown";
+import { Search, SearchItem } from "../components/Search";
 import "../styles/base.css";
 
 interface Props {
@@ -16,6 +19,42 @@ const fallbackImage =
 const { title, imageUrl = fallbackImage, description } = Astro.props;
 const currentPath = Astro.url.pathname;
 const fullPageUrl = `${baseUrl}${currentPath}`;
+
+const docsCollection = await getCollection("docs");
+const mdDocs = await Astro.glob("../content/docs/*.md");
+
+const mdDocsWithHeadings = mdDocs.map((a) => ({
+  ...a,
+  headings: a.getHeadings().map((h) => ({ ...h })),
+}));
+
+const enhancedDocsCollection = docsCollection.map((a1) => {
+  const foundA2 = mdDocsWithHeadings.find(
+    (a2) => a2.frontmatter.title === a1.data.title
+  );
+  return {
+    a1: { ...a1 },
+    a2: foundA2,
+  };
+});
+
+const searchItems: SearchItem[] = await Promise.all(
+  enhancedDocsCollection.map(async (k) => {
+    const strippedBodyFile = await remark()
+      .use(strip, { keep: ["code"] })
+      .process(k.a1.body);
+    const strippedBody = String(strippedBodyFile);
+    const noNewLines = strippedBody.replace(/(\r\n|\n|\r)/gm, " ");
+    return {
+      category: "article",
+      headings: k.a2?.headings,
+      slug: k.a1.slug,
+      title: k.a1.data.title,
+      fullPath: `/${k.a1.collection}/${k.a1.slug}`,
+      body: noNewLines,
+    };
+  })
+);
 ---
 
 <!DOCTYPE html>
@@ -41,7 +80,7 @@ const fullPageUrl = `${baseUrl}${currentPath}`;
         <ul class="md:block hidden">
           <li><a class="btn btn-ghost btn-sm" href="/docs">Docs</a></li>
         </ul>
-        <Search client:load />
+        <Search items={searchItems} client:idle />
       </div>
     </div>
     <slot />

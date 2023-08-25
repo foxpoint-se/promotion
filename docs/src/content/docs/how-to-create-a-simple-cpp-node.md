@@ -26,7 +26,7 @@ title: How to create a simple CPP node
 
 1. Add to `CMakeLists.txt`:
 
-   ```txt
+   ```
    // find_package...
 
    add_executable(cpp_node src/my_first_node.cpp)

@@ -1,5 +1,5 @@
 ---
-import { getCollection } from "astro:content";
+import { CollectionEntry, getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 
 const shorten = (str: string, maxLen: number, separator = " ") => {
@@ -9,18 +9,22 @@ const shorten = (str: string, maxLen: number, separator = " ") => {
 
 export async function getStaticPaths() {
   const docs = await getCollection("docs");
-  return docs.map((entry) => ({
-    params: { doc: entry.slug },
-    props: { entry },
+  return docs.map((article) => ({
+    params: { slug: article.slug },
+    props: { article },
   }));
 }
 
-const { entry } = Astro.props;
-const { Content } = await entry.render();
-const description = shorten(entry.body, 155) + "...";
+interface Props {
+  article: CollectionEntry<"docs">;
+}
+
+const { article } = Astro.props;
+const { Content } = await article.render();
+const description = shorten(article.body, 155) + "...";
 ---
 
-<Layout title={entry.data.title} description={description}>
+<Layout title={article.data.title} description={description}>
   <main>
     <article class="px-md mb-xl max-w-3xl mx-auto">
       <Content />
