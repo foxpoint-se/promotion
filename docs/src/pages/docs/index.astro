@@ -10,6 +10,12 @@ const articles = await getCollection("docs");
   description="Articles, guides, documentation etc."
 >
   <main class="px-md mb-2xl max-w-3xl mx-auto">
+    <div class="text-sm breadcrumbs">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li>Articles</li>
+      </ul>
+    </div>
     <div class="mt-lg mb-md">
       <h1 class="text-4xl font-bold text-gradient">Articles</h1>
     </div>
@@ -18,15 +24,15 @@ const articles = await getCollection("docs");
         articles.map((a) => {
           return (
             <div class="card bg-transparent border border-neutral-300 hover:shadow-lg transition-shadow">
-              <div class="card-body">
-                <h2 class="card-title">
+              <div class="card-body p-md">
+                <h2 class="card-title flex items-start">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke-width="1.5"
                     stroke="currentColor"
-                    class="w-6 h-6 inline-block text-primary"
+                    class="w-6 h-6 inline-block text-primary mt-[3px]"
                   >
                     <path
                       stroke-linecap="round"

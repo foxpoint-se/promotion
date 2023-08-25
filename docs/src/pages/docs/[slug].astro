@@ -26,8 +26,15 @@ const description = article.data.description || alternativeDescription;
 ---
 
 <Layout title={article.data.title} description={description}>
-  <main>
-    <article class="px-md mb-xl max-w-3xl mx-auto">
+  <main class="px-md mb-xl max-w-3xl mx-auto">
+    <div class="text-sm breadcrumbs">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/docs">Articles</a></li>
+        <li>{article.data.title}</li>
+      </ul>
+    </div>
+    <article>
       <Content />
     </article>
   </main>
