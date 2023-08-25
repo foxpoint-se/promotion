@@ -78,7 +78,9 @@ const searchItems: SearchItem[] = await Promise.all(
       </div>
       <div class="flex-none gap-sm">
         <ul class="md:block hidden">
-          <li><a class="btn btn-ghost btn-sm" href="/docs">Docs</a></li>
+          <li>
+            <a class="btn btn-ghost btn-sm capitalize" href="/docs">Docs</a>
+          </li>
         </ul>
         <Search items={searchItems} client:idle />
       </div>
