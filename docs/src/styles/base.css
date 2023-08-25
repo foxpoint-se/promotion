@@ -59,7 +59,7 @@ article pre {
 }
 
 article code {
-  @apply bg-neutral-300;
+  @apply bg-neutral-300 break-words;
 }
 
 article pre code {
