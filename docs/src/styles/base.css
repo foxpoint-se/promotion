@@ -63,7 +63,7 @@ article code {
 }
 
 article pre code {
-  @apply px-md bg-transparent;
+  @apply px-md bg-transparent block;
 }
 
 article a {

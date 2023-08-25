@@ -1,5 +1,8 @@
 ---
+import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
+
+const articles = await getCollection("docs");
 ---
 
 <Layout
@@ -11,8 +14,14 @@ import Layout from "../../layouts/Layout.astro";
       <h1 class="text-4xl font-bold text-gradient">Articles</h1>
     </div>
 
-    <a class="link link-primary" href="/docs/how-to-use-ui-and-eel-together"
-      >How to use the UI and Eel together</a
-    >
+    {
+      articles.map((a) => {
+        return (
+          <a class="link link-primary" href={`/${a.collection}/${a.slug}`}>
+            {a.data.title}
+          </a>
+        );
+      })
+    }
   </main>
 </Layout>
