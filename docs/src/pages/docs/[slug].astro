@@ -21,7 +21,8 @@ interface Props {
 
 const { article } = Astro.props;
 const { Content } = await article.render();
-const description = shorten(article.body, 155) + "...";
+const alternativeDescription = shorten(article.body, 155) + "...";
+const description = article.data.description || alternativeDescription;
 ---
 
 <Layout title={article.data.title} description={description}>

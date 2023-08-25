@@ -1,5 +1,7 @@
 ---
 title: How to use your custom message in a python node
+tags:
+  - ros2
 ---
 
 # How to use your custom message in a python node

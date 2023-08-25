@@ -1,5 +1,8 @@
 ---
 title: How to make VS Code accept your local imports
+tags:
+  - VSCode
+  - python
 ---
 
 # How to make VS Code accept your local imports

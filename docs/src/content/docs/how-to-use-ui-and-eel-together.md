@@ -1,5 +1,9 @@
 ---
 title: How to use the UI and Eel together
+description: Complete guide for how to get started with the Eel and connection through Ethernet.
+tags:
+  - ros2
+  - Eel
 ---
 
 # How to use the UI and Eel together

@@ -5,6 +5,8 @@ const docsCollection = defineCollection({
   type: "content", // v2.5.0 and later
   schema: z.object({
     title: z.string(),
+    description: z.optional(z.string()),
+    tags: z.optional(z.array(z.string())),
   }),
 });
 // 3. Export a single `collections` object to register your collection(s)

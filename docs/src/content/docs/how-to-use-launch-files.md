@@ -1,5 +1,8 @@
 ---
 title: How to use launch files
+description: Getting started with launch files in ROS2.
+tags:
+  - ros2
 ---
 
 # How to use launch files

@@ -1,5 +1,9 @@
 ---
 title: How to create a simple CPP node
+description: Empty CPP node, getting started.
+tags:
+  - c++
+  - ros2
 ---
 
 # How to create a simple CPP node

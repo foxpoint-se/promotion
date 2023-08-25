@@ -1,5 +1,9 @@
 ---
 title: How to create a simple Python node
+description: Empty Python node, getting started.
+tags:
+  - python
+  - ros2
 ---
 
 # How to create a simple Python node

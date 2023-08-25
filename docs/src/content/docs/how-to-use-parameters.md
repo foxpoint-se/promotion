@@ -1,5 +1,8 @@
 ---
 title: How to use parameters
+description: Getting started with parameters in ROS2.
+tags:
+  - ros2
 ---
 
 # How to use parameters

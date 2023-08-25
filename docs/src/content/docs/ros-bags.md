@@ -1,5 +1,8 @@
 ---
 title: Ros bags
+description: Some useful commands when using ROS bags.
+tags:
+  - ros2
 ---
 
 # Ros bags
