@@ -1,6 +1,7 @@
 ---
 import { CollectionEntry, getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
+import { uglySimpleDateFormatting } from "../../components/uglyFormatDate";
 
 export async function getStaticPaths() {
   const docs = await getCollection("updates");
@@ -23,10 +24,6 @@ const fallbackImage = {
 };
 
 const image = article.data.image || fallbackImage;
-
-const uglySimpleDateFormatting = (d: Date) => {
-  return d.toISOString().substring(0, 10);
-};
 
 const formattedDate = uglySimpleDateFormatting(article.data.date);
 ---

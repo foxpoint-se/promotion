@@ -1,10 +1,20 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import { getCollection } from "astro:content";
 import { YouTube } from "astro-embed";
+import Layout from "../layouts/Layout.astro";
+import { NewsUpdateItem } from "../components/NewsUpdateItem";
 
 const pageTitle = "Welcome to Foxpoint.";
 const pageDescription =
   "Autonomous underwater vehicles. Foxpoint, Stockholm, Sweden.";
+
+const updates = await getCollection("updates");
+
+const sortedUpdates = [...updates].sort(function (a, b) {
+  return b.data.date.valueOf() - a.data.date.valueOf();
+});
+
+const firstUpdate = sortedUpdates[0];
 ---
 
 <Layout title={pageTitle} description={pageDescription}>
@@ -34,26 +44,18 @@ const pageDescription =
       <h2 class="text-3xl font-bold mb-md">What is this?</h2>
       <YouTube id="https://youtu.be/KOSPxWNBfw4?si=a7EsqGDZAqqcgX65" />
       <div class="mt-32">
-        <h2 class="text-3xl font-bold mb-md">Latest updates</h2>
-        <div class="card card-compact bg-base-100 shadow-xl">
-          <figure>
-            <img
-              src="/images/field_trip_2023_08_20.jpg"
-              alt="Field trip with the Eel"
-            />
-          </figure>
-          <div class="card-body">
-            <h3 class="card-title">Testing depth control in the field</h3>
-            <p class="font-bold text-sm">2023-08-20</p>
-            <p>
-              We went out in the field to test the depth control, using a
-              gamepad and cable.
-            </p>
-            <div class="card-actions justify-end">
-              <button class="btn btn-primary" disabled>View all updates</button>
-            </div>
-          </div>
+        <div class="flex mb-md items-baseline justify-between">
+          <h2 class="text-3xl font-bold">Latest update</h2><a
+            class="link link-primary"
+            href="/updates">View all updates</a
+          >
         </div>
+        <NewsUpdateItem
+          update={{
+            ...firstUpdate.data,
+            linkUrl: `/updates/${firstUpdate.slug}`,
+          }}
+        />
       </div>
     </div>
   </main>
