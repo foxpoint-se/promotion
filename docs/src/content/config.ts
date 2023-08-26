@@ -6,6 +6,7 @@ const docsCollection = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.optional(z.string()),
+    date: z.optional(z.date()),
     tags: z.optional(z.array(z.string())),
   }),
 });

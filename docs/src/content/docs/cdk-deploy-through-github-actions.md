@@ -4,6 +4,7 @@ description: A simple CI/CD setup.
 tags:
   - AWS CDK
   - Github Actions
+date: 2023-08-26
 ---
 
 # CDK deploy through Github Actions

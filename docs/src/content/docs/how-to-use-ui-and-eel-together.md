@@ -4,6 +4,7 @@ description: Complete guide for how to get started with the Eel and connection t
 tags:
   - ros2
   - Eel
+date: 2023-06-04
 ---
 
 # How to use the UI and Eel together
