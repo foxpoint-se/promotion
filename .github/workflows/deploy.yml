@@ -2,9 +2,9 @@ name: CDK deploy
 
 on:
   push:
-    branches: [ghtest]
+    branches: [main]
   pull_request:
-    branches: [ghtest]
+    branches: [main]
 
 jobs:
   deploy:
@@ -26,6 +26,4 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_KEY }}
           aws-region: "eu-west-1" # don't know if this matters, since region is specified in stack anyway?
-      # - run: make setup-docs
-      # - run: make build-docs
       - run: make deploy
