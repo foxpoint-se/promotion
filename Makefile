@@ -19,7 +19,7 @@ build-docs:
 	cd docs && yarn build
 
 cdk-deploy-docs:
-	cd deploy && yarn cdk deploy
+	cd deploy && yarn cdk deploy --all --require-approval never
 
 deploy: setup build-docs cdk-deploy-docs		## deploy everything
 
