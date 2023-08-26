@@ -1,0 +1,19 @@
+---
+title: Field trip - dive test
+description: Trying out new vertical axis control using gamepad and cable.
+date: 2023-20-08
+image:
+  url: /images/field_trip_2023_08_20.jpg
+  description: Field trip, testing the Eel
+---
+
+## What did we do?
+
+We used our gamepad and an ethernet cable connection to control the Eel from land.
+
+## Learnings
+
+- Steering the Eel to a depth worked well with the new vertical axis control.
+- However, quite hard to do that manually. Since it was impossible to see the thing when it was deeper than 1 meter, we had no idea what we were doing.
+- We need visualization of the depth and also the pitch.
+- We need a longer cable.

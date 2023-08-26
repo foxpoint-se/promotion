@@ -1,0 +1,36 @@
+---
+import { getCollection } from "astro:content";
+import { NewsUpdateItem } from "../../components/NewsUpdateItem";
+import Layout from "../../layouts/Layout.astro";
+
+const articles = await getCollection("updates");
+
+const sortedArticles = [...articles].sort(function (a, b) {
+  return b.data.date.valueOf() - a.data.date.valueOf();
+});
+---
+
+<Layout title="Foxpoint news updates" description="Log of our recent work.">
+  <main class="px-md mb-2xl max-w-3xl mx-auto">
+    <div class="text-sm breadcrumbs">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li>News updates</li>
+      </ul>
+    </div>
+    <div class="mt-lg mb-md">
+      <h1 class="text-4xl font-bold text-gradient">News updates</h1>
+    </div>
+    <div class="flex flex-col gap-md">
+      {
+        sortedArticles.map((a) => {
+          return (
+            <NewsUpdateItem
+              update={{ ...a.data, linkUrl: `/${a.collection}/${a.slug}` }}
+            />
+          );
+        })
+      }
+    </div>
+  </main>
+</Layout>

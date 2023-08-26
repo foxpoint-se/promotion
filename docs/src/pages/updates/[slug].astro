@@ -1,0 +1,53 @@
+---
+import { CollectionEntry, getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import { uglySimpleDateFormatting } from "../../components/uglyFormatDate";
+
+export async function getStaticPaths() {
+  const docs = await getCollection("updates");
+  return docs.map((article) => ({
+    params: { slug: article.slug },
+    props: { article },
+  }));
+}
+
+interface Props {
+  article: CollectionEntry<"updates">;
+}
+
+const { article } = Astro.props;
+const { Content } = await article.render();
+
+const fallbackImage = {
+  url: "/images/rotholmen_mist.jpg",
+  description: "Rotholmen in the mist",
+};
+
+const image = article.data.image || fallbackImage;
+
+const formattedDate = uglySimpleDateFormatting(article.data.date);
+---
+
+<Layout
+  title={article.data.title}
+  description={article.data.description}
+  imageUrl={`https://www.foxpoint.se${image.url}`}
+>
+  <main class="px-md mb-40 max-w-3xl mx-auto">
+    <div class="text-sm breadcrumbs">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/updates">News updates</a></li>
+        <li>{article.data.title}</li>
+      </ul>
+    </div>
+    <article>
+      <h1>
+        <div>{article.data.title}</div>
+        <div class="badge badge-ghost">{formattedDate}</div>
+      </h1>
+      <img src={image.url} alt={image.description} />
+      <Content />
+    </article>
+  </main>
+</Layout>

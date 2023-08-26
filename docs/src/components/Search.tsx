@@ -77,24 +77,27 @@ export const Search = ({ items }: { items: SearchItem[] }) => {
       </button>
       <dialog id="search-modal" className={`modal`} ref={dialogRef}>
         <form method="dialog" className="modal-box absolute top-lg">
-          <div className="join flex">
+          <div className="relative flex">
             <input
-              className="input input-bordered join-item grow"
+              className="input input-bordered grow"
               placeholder="Search here"
               value={searchString}
               onChange={handleInputChange}
             />
-            <button className="btn join-item" onClick={handleClearClick}>
+            <button
+              className="btn btn-ghost btn-sm btn-circle absolute right-1 top-2"
+              onClick={handleClearClick}
+            >
               <XIcon />
             </button>
           </div>
           <div className="flex flex-col w-full mt-md gap-sm">
-            {searchResults.map((sr) => (
+            {searchResults.slice(0, 10).map((sr) => (
               <SearchResult key={sr.item.slug} res={sr} />
             ))}
           </div>
           <div className="modal-action">
-            <button className="btn">Close</button>
+            <button className="btn btn-ghost">Close</button>
           </div>
         </form>
         <form
