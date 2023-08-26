@@ -31,7 +31,11 @@ const uglySimpleDateFormatting = (d: Date) => {
 const formattedDate = uglySimpleDateFormatting(article.data.date);
 ---
 
-<Layout title={article.data.title} description={article.data.description}>
+<Layout
+  title={article.data.title}
+  description={article.data.description}
+  imageUrl={`https://www.foxpoint.se${image.url}`}
+>
   <main class="px-md mb-40 max-w-3xl mx-auto">
     <div class="text-sm breadcrumbs">
       <ul>
