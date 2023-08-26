@@ -20,5 +20,6 @@ jobs:
         with:
           node-version: "18.x"
           cache: "yarn"
+          cache-dependency-path: docs/yarn.lock
       - run: make setup-docs
       - run: make build-docs
