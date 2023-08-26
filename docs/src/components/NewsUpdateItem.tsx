@@ -26,7 +26,7 @@ export const NewsUpdateItem = ({ update }: { update: Update }) => {
         </div>
         <p>{update.description}</p>
         <div className="card-actions justify-end">
-          <a href={update.linkUrl} className="btn btn-sm">
+          <a href={update.linkUrl} className="btn btn-ghost">
             Go to article
           </a>
         </div>
