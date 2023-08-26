@@ -3,8 +3,6 @@ name: CDK deploy
 on:
   push:
     branches: [main]
-  pull_request:
-    branches: [main]
 
 jobs:
   deploy:
