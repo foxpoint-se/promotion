@@ -11,12 +11,18 @@ export type Update = {
   };
 };
 
+const fallbackImage = {
+  url: "/images/foxpoint_logo_no_image.png",
+  description: "No image, Foxpoint logo",
+};
+
 export const NewsUpdateItem = ({ update }: { update: Update }) => {
+  const image = update.image || fallbackImage;
   return (
     <div className="card card-compact bg-base-100 shadow-xl">
-      {update.image && (
+      {image && (
         <figure className="max-h-80">
-          <img src={update.image.url} alt={update.image.description} />
+          <img src={image.url} alt={image.description} />
         </figure>
       )}
       <div className="card-body">

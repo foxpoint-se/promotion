@@ -19,8 +19,8 @@ const { article } = Astro.props;
 const { Content } = await article.render();
 
 const fallbackImage = {
-  url: "/images/rotholmen_mist.jpg",
-  description: "Rotholmen in the mist",
+  url: "/images/foxpoint_logo_no_image.png",
+  description: "No image, Foxpoint logo",
 };
 
 const image = article.data.image || fallbackImage;
