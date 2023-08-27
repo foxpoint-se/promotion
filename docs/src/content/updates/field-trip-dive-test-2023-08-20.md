@@ -1,7 +1,7 @@
 ---
 title: Field trip - dive test
 description: Trying out new vertical axis control using gamepad and cable.
-date: 2023-20-08
+date: 2023-08-20
 image:
   url: /images/field_trip_2023_08_20.jpg
   description: Field trip, testing the Eel
