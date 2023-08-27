@@ -61,7 +61,7 @@ export const Pagination = ({
       <a
         href={prevUrl}
         className={`btn btn-outline btn-sm mr-md ${
-          !prevUrl ? "btn-disabled" : ""
+          !prevUrl ? "btn-disabled opacity-40" : ""
         }`}
       >
         <svg
@@ -107,7 +107,7 @@ export const Pagination = ({
       <a
         href={nextUrl}
         className={`btn btn-outline btn-sm ml-md ${
-          !nextUrl ? "btn-disabled" : ""
+          !nextUrl ? "btn-disabled opacity-40" : ""
         }`}
       >
         <svg
