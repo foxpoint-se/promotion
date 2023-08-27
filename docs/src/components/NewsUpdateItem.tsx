@@ -15,7 +15,7 @@ export const NewsUpdateItem = ({ update }: { update: Update }) => {
   return (
     <div className="card card-compact bg-base-100 shadow-xl">
       {update.image && (
-        <figure>
+        <figure className="max-h-80">
           <img src={update.image.url} alt={update.image.description} />
         </figure>
       )}
