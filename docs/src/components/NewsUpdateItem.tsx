@@ -20,7 +20,7 @@ export const NewsUpdateItem = ({ update }: { update: Update }) => {
         </figure>
       )}
       <div className="card-body">
-        <h3 className="card-title">Testing depth control in the field</h3>
+        <h3 className="card-title">{update.title}</h3>
         <div className="badge badge-ghost">
           {uglySimpleDateFormatting(update.date)}
         </div>
