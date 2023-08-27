@@ -10,11 +10,20 @@ const pageDescription =
 
 const updates = await getCollection("updates");
 
-const sortedUpdates = [...updates].sort(function (a, b) {
+const pinnedUpdates = updates.filter((u) => u.data.pinned);
+const notPinnedUpdates = updates.filter((u) => !u.data.pinned);
+
+const sortedUnpinned = [...notPinnedUpdates].sort(function (a, b) {
   return b.data.date.valueOf() - a.data.date.valueOf();
 });
 
-const firstUpdate = sortedUpdates[0];
+const firstUnpinned = sortedUnpinned[0];
+
+const pinnedPlusFirst = [...pinnedUpdates, firstUnpinned];
+
+const latestUpdates = [...pinnedPlusFirst].sort(function (a, b) {
+  return b.data.date.valueOf() - a.data.date.valueOf();
+});
 ---
 
 <Layout title={pageTitle} description={pageDescription}>
@@ -59,18 +68,25 @@ const firstUpdate = sortedUpdates[0];
       <h2 class="text-3xl font-bold mb-md">What is this?</h2>
       <YouTube id="https://youtu.be/KOSPxWNBfw4?si=a7EsqGDZAqqcgX65" />
       <div class="mt-32">
-        <div class="flex mb-md items-baseline justify-between">
-          <h2 class="text-3xl font-bold">Latest update</h2><a
-            class="link link-primary"
-            href="/updates">View all updates</a
-          >
+        <div
+          class="flex flex-col md:flex-row mb-md items-baseline justify-between"
+        >
+          <h2 class="text-3xl font-bold">
+            <span> Latest updates</span>
+          </h2><a class="link link-primary" href="/updates">View all updates</a>
         </div>
-        <NewsUpdateItem
-          update={{
-            ...firstUpdate.data,
-            linkUrl: `/updates/${firstUpdate.slug}`,
-          }}
-        />
+        <div class="flex flex-col gap-xl">
+          {
+            latestUpdates.map((u) => (
+              <NewsUpdateItem
+                update={{
+                  ...u.data,
+                  linkUrl: `/updates/${u.slug}`,
+                }}
+              />
+            ))
+          }
+        </div>
       </div>
     </div>
   </main>

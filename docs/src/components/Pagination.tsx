@@ -89,6 +89,7 @@ export const Pagination = ({
           }
           return (
             <a
+              key={n}
               href={link}
               className={`btn btn-ghost btn-sm join-item 
             ${

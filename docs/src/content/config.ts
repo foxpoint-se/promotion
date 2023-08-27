@@ -17,6 +17,7 @@ const updatesCollection = defineCollection({
     title: z.string(),
     description: z.string(),
     date: z.date(),
+    pinned: z.optional(z.boolean()),
     image: z.optional(
       z.object({
         url: z.string(),
