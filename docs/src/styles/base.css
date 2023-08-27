@@ -78,3 +78,7 @@ article pre code {
 article a {
   @apply link link-primary;
 }
+
+article p {
+  @apply my-md;
+}
