@@ -20,7 +20,10 @@ const { title, imageUrl = fallbackImage, description } = Astro.props;
 const currentPath = Astro.url.pathname;
 const fullPageUrl = `${baseUrl}${currentPath}`;
 
-const docsCollection = await getCollection("docs");
+const wholeCollection = await getCollection("docs");
+
+const docsCollection = wholeCollection.filter((d) => !d.data.draft);
+
 const mdDocs = await Astro.glob("../content/docs/*.md");
 
 const mdDocsWithHeadings = mdDocs.map((a) => ({

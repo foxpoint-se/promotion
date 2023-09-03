@@ -6,7 +6,8 @@ import Layout from "../../layouts/Layout.astro";
 import { Pagination } from "../../components/Pagination";
 
 export const getStaticPaths = (async ({ paginate }) => {
-  const articles = await getCollection("docs");
+  const articlesCollection = await getCollection("docs");
+  const articles = articlesCollection.filter((a) => !a.data.draft);
 
   const articlesWithDate = articles.filter((a) => a.data.date);
   const articlesWithoutDate = articles.filter((a) => !a.data.date);

@@ -8,6 +8,7 @@ const docsCollection = defineCollection({
     description: z.optional(z.string()),
     date: z.optional(z.date()),
     tags: z.optional(z.array(z.string())),
+    draft: z.optional(z.boolean()), // when true, not visible in list or in search. you'd have to know the exact url to visit.
   }),
 });
 
