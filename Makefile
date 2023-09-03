@@ -21,8 +21,7 @@ build-docs:
 cdk-deploy-docs:
 	cd deploy && yarn cdk deploy --all --require-approval never
 
-# deploy: setup build-docs cdk-deploy-docs		## deploy everything
-deploy: exit 1
+deploy: setup build-docs cdk-deploy-docs		## deploy everything
 
 dev:		## start dev server (localhost:3000)
 	cd docs && yarn dev
