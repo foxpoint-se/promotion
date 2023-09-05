@@ -47,6 +47,17 @@ export const Search = ({ items }: { items: SearchItem[] }) => {
     setSearchResults(res);
   };
 
+  const trackSearch = (val: string) => {
+    // @ts-expect-error - gtag is global
+    gtag("event", "search", {
+      search_term: val,
+    });
+  };
+
+  const handleBlur = () => {
+    trackSearch(searchString);
+  };
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchString(e.target.value);
     doSearch(e.target.value);
@@ -83,6 +94,7 @@ export const Search = ({ items }: { items: SearchItem[] }) => {
               placeholder="Search here"
               value={searchString}
               onChange={handleInputChange}
+              onBlur={handleBlur}
             />
             <button
               className="btn btn-ghost btn-sm btn-circle absolute right-1 top-2"
