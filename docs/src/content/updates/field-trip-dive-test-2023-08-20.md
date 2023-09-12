@@ -7,6 +7,8 @@ image:
   description: Field trip, testing the Eel
 ---
 
+![Programming the Eel by the lake](/images/field_trip_2023_08_20.jpg)
+
 ## What did we do?
 
 We used our gamepad and an ethernet cable connection to control the Eel from land.
