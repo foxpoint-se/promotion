@@ -238,7 +238,7 @@ public IP port `55943`
 
 wg0-client-adam.conf
 
-```conf
+```bash
 [Interface]
 PrivateKey = REDACTED
 Address = 10.66.66.2/32,fd42:42:42::2/128
@@ -255,7 +255,7 @@ PersistentKeepalive = 25
 
 server /etc/wireguard/wg0.conf
 
-```conf
+```bash
 [Interface]
 Address = 10.66.66.1/24,fd42:42:42::1/64
 ListenPort = 55943

@@ -82,6 +82,12 @@ const searchItems: SearchItem[] = await Promise.all(
     <meta property="og:description" content={description} />
     <meta property="og:image" content={imageUrl} />
     <meta property="og:url" content={fullPageUrl} />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css"
+      integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ"
+      crossorigin="anonymous"
+    />
     <title>{title}</title>
   </head>
   <body class="min-h-[110vh] flex flex-col">
