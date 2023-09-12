@@ -255,7 +255,7 @@ PersistentKeepalive = 25
 
 server /etc/wireguard/wg0.conf
 
-```conf
+```bash
 [Interface]
 Address = 10.66.66.1/24,fd42:42:42::1/64
 ListenPort = 55943
