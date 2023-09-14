@@ -13,7 +13,10 @@ setup-docs:
 setup-deploy:
 	cd deploy && yarn
 
-setup: setup-docs setup-deploy		## install and setup everything for development
+setup-compress:
+	cd compress && yarn
+
+setup: setup-docs setup-deploy setup-compress		## install and setup everything for development
 
 build-docs:
 	cd docs && yarn build
@@ -25,3 +28,7 @@ deploy: setup build-docs cdk-deploy-docs		## deploy everything
 
 dev:		## start dev server (localhost:3000)
 	cd docs && yarn dev
+
+.PHONY: compress
+compress:		## compress all images in ./compress/images folder
+	cd compress && yarn compress
