@@ -99,6 +99,7 @@ export const Search = ({ items }: { items: SearchItem[] }) => {
             <button
               className="btn btn-ghost btn-sm btn-circle absolute right-1 top-2"
               onClick={handleClearClick}
+              aria-label="Clear search input"
             >
               <XIcon />
             </button>
