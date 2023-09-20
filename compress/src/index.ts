@@ -30,10 +30,16 @@ const fileSuffix = "_COMPRESSED";
 const notAlreadyCompressed = (pathToFile: string) =>
   !pathToFile.includes(fileSuffix);
 
-const config = {
+type FormatConfig = {
+  png: sharp.PngOptions;
+  jpeg: sharp.JpegOptions;
+  webp: sharp.WebpOptions;
+};
+
+const config: FormatConfig = {
   jpeg: { quality: 80 },
   webp: { quality: 80 },
-  png: { compressionLevel: 8 },
+  png: { quality: 80 },
 };
 
 const compressOneFile = async (path: string): Promise<string> => {
