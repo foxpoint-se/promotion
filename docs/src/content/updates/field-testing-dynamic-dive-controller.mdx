@@ -1,0 +1,31 @@
+---
+title: Partially successful test of dynamic dive controller
+description: Field trip trying out the dynamic dive controller, using gamepad and cable.
+date: 2023-10-14
+image:
+  url: /images/field_trip_dive_control_2023-10-14.png
+  description: The Eel a couple of decimeters under water
+---
+
+import { YouTube } from "astro-embed";
+
+<YouTube id="https://youtu.be/Vw6s54IlP5A" class="max-w-3xl" />
+
+## What did we do?
+
+A couple of weeks ago we had a go at verifying how well our depth control performed. That time we had lots of problems, including one servo that completely gave up. Today we had a new servo and were hoping for a second chance.
+
+We had toggled off the manual depth control from the gamepad, which meant that we could only control thrust and right/left steering. Instead we set the target depth to various values, for example 0.5 meters, and the Eel would have to control that itself.
+
+Overall, the experiment was pretty successful. Driving it around at half a meters depth was great fun, and it performed a lot better than when we were trying to hold the depth manually.
+
+## Takeaways
+
+- The gamepad still shuts down sometimes, which is pretty annoying.
+- Do we need to increase how much the propeller can turn on either the x-axis or the y-axis, or both? Not a high prio at this point, but might be worth considering.
+- Is the propeller completely centered on the y-axis?
+- We re-adjusted the buoyancy so that the Eel just barely stayed afloat. The external GNSS module was the only thing holding it up. We believe this made it easier to control, but not sure.
+- Our new testing site seems to be better than our previous one. Great access to the water from the jetty, and also - despite a windy day - this place was calm. For future reference, the wind blew from the west today.
+- Our most important learning from today was probably that, although the depth control worked better than we could have hoped for, we realised it was oscillating, see picture below. We'll have to tweak our k-values for the PIDs next time.
+
+![Line graph showing pitch and depth](/images/depth_pitch_testrun_2023-10-14.png)
