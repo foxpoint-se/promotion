@@ -31,10 +31,15 @@ const latestUpdates = [...pinnedPlusFirst].sort(function (a, b) {
 
 <Layout title={pageTitle} description={pageDescription} imageUrl={imageUrl}>
   <main>
-    <div
-      class="bg-gradient-to-b from-transparent via-[#2ec8d61a] via-5% to-50% to-transparent pt-lg pb-xl"
-    >
+    <div class="pt-lg pb-xl">
       <div class="px-md max-w-3xl mx-auto text-center">
+        <div class="flex justify-center">
+          <img
+            src="/images/just_show_up.svg"
+            alt="Foxpoint logo"
+            class="max-h-[500px]"
+          />
+        </div>
         <h1 class="tracking-tightest">
           <div class="text-5xl">
             <span class="font-semibold">Welcome to{` `}</span>
@@ -73,16 +78,9 @@ const latestUpdates = [...pinnedPlusFirst].sort(function (a, b) {
             Github
           </a>
         </div>
-        <div class="flex justify-center mt-xl">
-          <img
-            src="/images/just_show_up.svg"
-            alt="Foxpoint logo"
-            class="max-h-[650px]"
-          />
-        </div>
       </div>
     </div>
-    <div class="bg-[#D9EAEC] py-md text-[#224144]">
+    <div class="bg-[#D9EAEC] py-md text-[#224144] mt-lg">
       <div class="px-md max-w-3xl mx-auto">
         <a
           href="#what-is-this"
