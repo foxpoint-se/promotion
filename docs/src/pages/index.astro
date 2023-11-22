@@ -4,9 +4,10 @@ import { YouTube } from "astro-embed";
 import Layout from "../layouts/Layout.astro";
 import { NewsUpdateItem } from "../components/NewsUpdateItem";
 
-const pageTitle = "Welcome to Foxpoint.";
+const pageTitle = "Welcome to Foxpoint. Autonomous underwater vehicles.";
 const pageDescription =
-  "Autonomous underwater vehicles. Foxpoint, Stockholm, Sweden.";
+  "A project by three enthusiastic engineers with too little spare time for this kind of thing. Love to talk about it though.";
+const imageUrl = "https://www.foxpoint.se/images/just_show_up.svg";
 
 const updates = await getCollection("updates");
 
@@ -28,7 +29,7 @@ const latestUpdates = [...pinnedPlusFirst].sort(function (a, b) {
 });
 ---
 
-<Layout title={pageTitle} description={pageDescription}>
+<Layout title={pageTitle} description={pageDescription} imageUrl={imageUrl}>
   <main>
     <div class="hero min-h-[80vh]">
       <div class="hero-content">
