@@ -83,6 +83,7 @@ const latestUpdates = [...pinnedPlusFirst].sort(function (a, b) {
     <div class="bg-[#D9EAEC] py-md text-[#224144] mt-lg">
       <div class="px-md max-w-3xl mx-auto">
         <a
+          id="read-more-link"
           href="#what-is-this"
           class="hover:underline flex flex-col justify-center items-center"
         >
@@ -140,4 +141,23 @@ const latestUpdates = [...pinnedPlusFirst].sort(function (a, b) {
       </div>
     </div>
   </main>
+  <script>
+    const readMoreLinkId = "read-more-link";
+    const readMoreLink = document.getElementById(readMoreLinkId);
+    if (!readMoreLink) {
+      throw new Error(
+        `Could not find ${readMoreLinkId}. Page might not work properly.`
+      );
+    }
+    const removeHashFromUrl = () => {
+      history.pushState(
+        "",
+        document.title,
+        window.location.pathname + window.location.search
+      );
+    };
+    readMoreLink.addEventListener("click", () => {
+      setTimeout(removeHashFromUrl, 2000);
+    });
+  </script>
 </Layout>
