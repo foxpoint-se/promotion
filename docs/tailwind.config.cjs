@@ -6,6 +6,10 @@ module.exports = {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
     extend: {
+      letterSpacing: {
+        tightest: "-.075em",
+        ...defaultTheme.letterSpacing,
+      },
       spacing: {
         xs: "0.25rem",
         sm: "0.5rem",
@@ -13,6 +17,7 @@ module.exports = {
         lg: "2rem",
         xl: "3rem",
         "2xl": "4rem",
+        "3xl": "6rem",
       },
       fontFamily: {
         sans: ["Mulish", ...defaultTheme.fontFamily.sans],

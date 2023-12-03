@@ -4,9 +4,10 @@ import { YouTube } from "astro-embed";
 import Layout from "../layouts/Layout.astro";
 import { NewsUpdateItem } from "../components/NewsUpdateItem";
 
-const pageTitle = "Welcome to Foxpoint.";
+const pageTitle = "Welcome to Foxpoint. Autonomous underwater vehicles.";
 const pageDescription =
-  "Autonomous underwater vehicles. Foxpoint, Stockholm, Sweden.";
+  "A project by three enthusiastic engineers with too little spare time for this kind of thing. Love to talk about it though.";
+const imageUrl = "https://www.foxpoint.se/images/just_show_up.svg";
 
 const updates = await getCollection("updates");
 
@@ -28,71 +29,135 @@ const latestUpdates = [...pinnedPlusFirst].sort(function (a, b) {
 });
 ---
 
-<Layout title={pageTitle} description={pageDescription}>
+<Layout title={pageTitle} description={pageDescription} imageUrl={imageUrl}>
   <main>
-    <div class="hero min-h-[80vh]">
-      <div class="hero-content">
-        <div class="max-w-2xl">
+    <div class="pt-lg pb-xl">
+      <div class="px-md max-w-3xl mx-auto text-center">
+        <div class="flex justify-center">
           <img
-            src="/images/foxpoint_logo_outline.svg"
-            class="mb-2xl"
+            src="/images/just_show_up.svg"
             alt="Foxpoint logo"
+            class="max-h-[600px]"
           />
-
-          <h1 class="text-5xl font-bold text-gradient animate-gradient">
-            Welcome to Foxpoint.
-          </h1>
-          <p class="py-6">Autonomous underwater vehicles.</p>
-          <div class="flex gap-2">
-            <a href="/docs" class="btn btn-primary">Documentation</a>
-            <a href="https://github.com/foxpoint-se" class="btn btn-outline">
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 98 96"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M48.854 0C21.839 0 0 22 0 49.217c0 21.756 13.993 40.172 33.405 46.69 2.427.49 3.316-1.059 3.316-2.362 0-1.141-.08-5.052-.08-9.127-13.59 2.934-16.42-5.867-16.42-5.867-2.184-5.704-5.42-7.17-5.42-7.17-4.448-3.015.324-3.015.324-3.015 4.934.326 7.523 5.052 7.523 5.052 4.367 7.496 11.404 5.378 14.235 4.074.404-3.178 1.699-5.378 3.074-6.6-10.839-1.141-22.243-5.378-22.243-24.283 0-5.378 1.94-9.778 5.014-13.2-.485-1.222-2.184-6.275.486-13.038 0 0 4.125-1.304 13.426 5.052a46.97 46.97 0 0 1 12.214-1.63c4.125 0 8.33.571 12.213 1.63 9.302-6.356 13.427-5.052 13.427-5.052 2.67 6.763.97 11.816.485 13.038 3.155 3.422 5.015 7.822 5.015 13.2 0 18.905-11.404 23.06-22.324 24.283 1.78 1.548 3.316 4.481 3.316 9.126 0 6.6-.08 11.897-.08 13.526 0 1.304.89 2.853 3.316 2.364 19.412-6.52 33.405-24.935 33.405-46.691C97.707 22 75.788 0 48.854 0z"
-                  class="fill-current"
-                >
-                </path>
-              </svg>
-              Github
-            </a>
+        </div>
+        <h1 class="tracking-tightest">
+          <div class="text-5xl">
+            <span class="font-semibold">Welcome to{` `}</span>
+            <span class="font-extrabold text-gradient">Foxpoint.</span>
           </div>
+          <div class="text-5xl font-extrabold tracking-tightest">
+            Autonomous underwater vehicles.
+          </div>
+        </h1>
+        <div class="mt-lg text-lg font-light leading-tight tracking-tighter">
+          <p>
+            A project by three enthusiastic engineers with too little spare time
+            for this kind of thing.<br />Love to talk about it though.
+          </p>
+          <p class="mt-md">
+            Open source. ROS2. 3d printing. Cloud...<br />All the buzz words.
+          </p>
+        </div>
+        <div class="flex gap-2 justify-center mt-md">
+          <a href="/docs" class="btn btn-primary">Documentation</a>
+          <a href="https://github.com/foxpoint-se" class="btn btn-outline">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 98 96"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M48.854 0C21.839 0 0 22 0 49.217c0 21.756 13.993 40.172 33.405 46.69 2.427.49 3.316-1.059 3.316-2.362 0-1.141-.08-5.052-.08-9.127-13.59 2.934-16.42-5.867-16.42-5.867-2.184-5.704-5.42-7.17-5.42-7.17-4.448-3.015.324-3.015.324-3.015 4.934.326 7.523 5.052 7.523 5.052 4.367 7.496 11.404 5.378 14.235 4.074.404-3.178 1.699-5.378 3.074-6.6-10.839-1.141-22.243-5.378-22.243-24.283 0-5.378 1.94-9.778 5.014-13.2-.485-1.222-2.184-6.275.486-13.038 0 0 4.125-1.304 13.426 5.052a46.97 46.97 0 0 1 12.214-1.63c4.125 0 8.33.571 12.213 1.63 9.302-6.356 13.427-5.052 13.427-5.052 2.67 6.763.97 11.816.485 13.038 3.155 3.422 5.015 7.822 5.015 13.2 0 18.905-11.404 23.06-22.324 24.283 1.78 1.548 3.316 4.481 3.316 9.126 0 6.6-.08 11.897-.08 13.526 0 1.304.89 2.853 3.316 2.364 19.412-6.52 33.405-24.935 33.405-46.691C97.707 22 75.788 0 48.854 0z"
+                class="fill-current"
+              >
+              </path>
+            </svg>
+            Github
+          </a>
         </div>
       </div>
     </div>
-    <div class="px-md mb-40 max-w-3xl mx-auto">
-      <h2 class="text-3xl font-bold mb-md">What is this?</h2>
-      <YouTube id="https://youtu.be/rACeMjKgPv4" class="max-w-3xl" />
-      <div class="mt-32">
-        <div
-          class="flex flex-col md:flex-row mb-md items-baseline justify-between"
+    <div class="bg-[#dfdfe9] py-lg text-[#224144] mt-lg">
+      <div class="px-md max-w-3xl mx-auto">
+        <a
+          id="read-more-link"
+          href="#what-is-this"
+          class="hover:underline flex flex-col justify-center items-center"
         >
-          <h2 class="text-3xl font-bold">
-            <span> Latest updates</span>
-          </h2><a class="link link-primary" href="/updates">View all updates</a>
-        </div>
-        <div class="flex flex-col gap-xl">
-          {
-            latestUpdates.map((u) => (
-              <NewsUpdateItem
-                update={{
-                  ...u.data,
-                  linkUrl: `/updates/${u.slug}`,
-                }}
-              />
-            ))
-          }
-          <div class="flex justify-center">
-            <a class="link link-primary" href="/updates">View all updates</a>
+          <span>Keep going. Stay hydrated.</span>
+          <div class="mt-xs">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-5 h-5"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M19.5 5.25l-7.5 7.5-7.5-7.5m15 6l-7.5 7.5-7.5-7.5"></path>
+            </svg>
           </div>
+        </a>
+      </div>
+    </div>
+    <div class="px-md max-w-3xl mx-auto mt-3xl">
+      <h2
+        class="text-5xl font-extrabold tracking-tighter mb-lg"
+        id="what-is-this"
+      >
+        What is this exactly?
+      </h2>
+      <YouTube id="https://youtu.be/rACeMjKgPv4" class="max-w-3xl" />
+    </div>
+    <div class="px-md mt-32 mb-40 max-w-3xl mx-auto">
+      <div
+        class="flex flex-col md:flex-row mb-md items-baseline justify-between"
+      >
+        <h2 class="text-5xl font-extrabold tracking-tighter mb-lg">
+          <span>Latest updates</span>
+        </h2>
+        <a class="link link-primary" href="/updates">View all updates</a>
+      </div>
+      <div class="flex flex-col gap-xl">
+        {
+          latestUpdates.map((u) => (
+            <NewsUpdateItem
+              update={{
+                ...u.data,
+                linkUrl: `/updates/${u.slug}`,
+              }}
+            />
+          ))
+        }
+        <div class="flex justify-center">
+          <a class="link link-primary" href="/updates">View all updates</a>
         </div>
       </div>
     </div>
   </main>
+  <script>
+    const readMoreLinkId = "read-more-link";
+    const readMoreLink = document.getElementById(readMoreLinkId);
+    if (!readMoreLink) {
+      throw new Error(
+        `Could not find ${readMoreLinkId}. Page might not work properly.`
+      );
+    }
+    const removeHashFromUrl = () => {
+      history.pushState(
+        "",
+        document.title,
+        window.location.pathname + window.location.search
+      );
+    };
+    readMoreLink.addEventListener("click", () => {
+      setTimeout(removeHashFromUrl, 2000);
+    });
+  </script>
 </Layout>
