@@ -5,6 +5,7 @@ tags:
   - ros2
   - Eel
 date: 2023-06-04
+updated: 2024-04-17
 ---
 
 # How to use the UI and Eel together
@@ -57,16 +58,20 @@ We will refer to the three terminals as:
    1. `git pull`
    1. `source source_me.sh`
    1. `make build-sym`
-   1. `make start-pigpio`
-   1. `make start-gunthix`
+   1. `make start-pid-rudder`
    1. You should now see some output saying that a few nodes have started. If you get any errors, I can't help you :)
 1. In another terminal, let's say `Ground control 1`, do the following:
-   1. `cd ~/code/ground-control`
-   1. `make start-ros-ws`
+   1. `ssh eel`
+   1. `cd eel`
+   1. `source source_me.sh`
+   1. `ros2 launch rosbridge_server rosbridge_websocket_launch.xml`
    1. You should see something like `Rosbridge WebSocket server started...`.
 1. In the third terminal, let's say `Ground control 2`, do the following:
    1. `cd ~/code/ground-control`
-   1. `make web-dev`
+   1. `git checkout main`
+   1. `git pull`
+   1. `make setup`
+   1. `make dev`
    1. You should see something like `started server on...`.
 
 At this point (assuming no errors), everything should be up and running, so you can start sending commands from the web user interface.
@@ -75,6 +80,12 @@ At this point (assuming no errors), everything should be up and running, so you 
 
 1. Open a web browser.
 1. Navigate to http://localhost:3000.
+1. Select "Go to ROS Bridge"
+1. If there are no backends to select, then press Add backend
+  1. Name -> Type in some fancy name
+  1. Address -> localhost
+  1. Press Add backend
+1. Now that there is a backend to select press Use backend
 
 ## Shut down
 
