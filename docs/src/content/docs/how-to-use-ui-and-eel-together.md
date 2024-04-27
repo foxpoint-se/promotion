@@ -48,11 +48,13 @@ You will need to have three terminals running, which is why it's good to use `Ta
 
 We will refer to the three terminals as:
 
-- `Remote to RPi` (the one which you just connected to over SSH).
-- `Ground control 1` (which will be running the user interface).
-- `Ground control 2` (which will be running `ROS web bridge`, so that the user interace can communicate with ROS).
+- `Remote to RPi 1` (the one which you just connected to over SSH).
+- `Remote to RPi 2` (another SSH session just like the one above, which will be running `ROS web bridge`, so that the user interace can communicate with ROS).
+- `Ground control` (which will be running the user interface).
 
-1. In the `Remote to RPi` terminal (which you just setup in the previous section), do the following:
+## Do this
+
+1. In the `Remote to RPi 1` terminal (which you just setup in the previous section), do the following:
    1. `cd eel`
    1. `git checkout main`
    1. `git pull`
@@ -60,13 +62,13 @@ We will refer to the three terminals as:
    1. `make build-sym`
    1. `make start-pid-rudder`
    1. You should now see some output saying that a few nodes have started. If you get any errors, I can't help you :)
-1. In another terminal, let's say `Ground control 1`, do the following:
+1. In another terminal, let's say `Remote to RPi 2`, do the following:
    1. `ssh eel`
-   1. `cd eel`
-   1. `source source_me.sh`
-   1. `ros2 launch rosbridge_server rosbridge_websocket_launch.xml`
-   1. You should see something like `Rosbridge WebSocket server started...`.
-1. In the third terminal, let's say `Ground control 2`, do the following:
+   1. `cd eel/docker`
+   1. `dc up -d`
+   1. `dc logs -f`
+   1. You should see Docker starting up and then something like `Rosbridge WebSocket server started...`.
+1. In the third terminal, let's say `Ground control`, do the following:
    1. `cd ~/code/ground-control`
    1. `git checkout main`
    1. `git pull`
@@ -81,19 +83,20 @@ At this point (assuming no errors), everything should be up and running, so you 
 1. Open a web browser.
 1. Navigate to http://localhost:3000.
 1. Select "Go to ROS Bridge"
-1. If there are no backends to select, then press Add backend
-  1. Name -> Type in some fancy name
-  1. Address -> localhost
-  1. Press Add backend
-1. Now that there is a backend to select press Use backend
+1. If there are no backends to select, then click "Add backend".
+   1. Name -> E. g. "Ethernet".
+   1. Address -> `192.168.0.101`.
+   1. Click "Add backend".
+1. Now that there is a backend to select, click "Use backend".
 
 ## Shut down
 
 When you're done testing stuff, follow these steps to shut everything down properly:
 
-1. In the `Ground control 1` terminal, press `Ctrl C`
-1. In the `Ground control 2` terminal, press `Ctrl C`
-1. In the `Remote to RPi` terminal, press `Ctrl C`
-1. In the `Remote to RPi` terminal, run `sudo shutdown -h now`
+1. In the `Ground control` terminal, press `Ctrl C`
+1. In the `Remote to RPi 1` terminal, press `Ctrl C`
+1. In the `Remote to RPi 2` terminal, press `Ctrl C`
+   1. Then `dc down`
+   1. Then `sudo shutdown -h now`
 1. Kill the power to the Eel.
 1. Shut down your computer.
