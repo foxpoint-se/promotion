@@ -5,7 +5,6 @@ date: 2023-05-05
 image:
   url: /images/module_locking_system.jpg
   description: Module locking system
-pinned: true
 ---
 
 ![3D printed module locking system](/images/module_locking_system.jpg)
