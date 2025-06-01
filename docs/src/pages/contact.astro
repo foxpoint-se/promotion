@@ -1,0 +1,47 @@
+---
+import { ContactCard } from "../components/ContactCard";
+import Layout from "../layouts/Layout.astro";
+
+const pageTitle = "Contact the Foxpoint team";
+const pageDescription =
+  "Don't hesitate to reach out! We love to talk about these things.";
+const imageUrl =
+  "https://www.foxpoint.se/images/Inbjudan_rundning_Rotholmen.jpg";
+---
+
+<Layout title={pageTitle} description={pageDescription} imageUrl={imageUrl}>
+  <main>
+    <div class="pt-lg pb-xl">
+      <div
+        class="px-md max-w-3xl mx-auto flex flex-col items-center text-center"
+      >
+        <h1 class="tracking-tightest mb-lg max-w-[1000px]">
+          <div class="text-5xl leading-[3.5rem]">
+            <span class="font-semibold mb-sm">Meet the</span>
+            <span class="font-extrabold">Foxpoint team</span>
+          </div>
+        </h1>
+        <div class="flex flex-col gap-lg">
+          <ContactCard
+            imgUrl="/images/team/gunnar_fallberg.jpeg"
+            name="Gunnar Fallberg"
+            description="Wields a soldering iron like a medieval knight. Has strong opinions about screws. Once spent 4 hours debugging a wire that wasn't plugged in."
+            linkedin="https://www.linkedin.com/in/gunnar-fallberg-053318b5/"
+          />
+          <ContactCard
+            imgUrl="/images/team/david_bryngelsson.jpeg"
+            name="David Bryngelsson"
+            description="Does everything. Remembers none of it. Can hot-glue, code, and curse in three languages — but only all at once."
+            linkedin="https://www.linkedin.com/in/david-bryngelsson-0168019a/"
+          />
+          <ContactCard
+            imgUrl="/images/team/adam_lecorney.jpeg"
+            name="Adam LeCorney"
+            description="Writes code that sometimes works. Once tried to explain recursion to a cat. Can only relax properly during compilation."
+            linkedin="https://www.linkedin.com/in/adam-lecorney-74892b73/"
+          />
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>
