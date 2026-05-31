@@ -207,24 +207,25 @@ const searchItems: SearchItem[] = await Promise.all(
       <slot />
     </div>
     <footer class="footer pt-xl pb-20 bg-neutral-800 text-neutral-content">
-      <div class="footer px-md mb-2xl max-w-3xl mx-auto">
-        <div>
-          <img
-            width="50px"
-            src="/images/foxpoint_logo_light_transparent.svg"
-            alt="Foxpoint logo"
-          />
-          <p>
-            Foxpoint.<br />Stockholm, Sweden.<br />Autonomous underwater
-            vehicles.
-          </p>
-          <p>
-            <a href="/contact" class="link link-hover">👉 Contact us </a>
-          </p>
-        </div>
-        <div>
-          <span class="footer-title">Social</span>
-          <div class="grid grid-flow-col gap-4">
+      <div class="px-md mb-2xl max-w-3xl mx-auto w-full">
+        <div class="footer">
+          <div>
+            <img
+              width="50px"
+              src="/images/foxpoint_logo_light_transparent.svg"
+              alt="Foxpoint logo"
+            />
+            <p>
+              Foxpoint.<br />Stockholm, Sweden.<br />Autonomous underwater
+              vehicles.
+            </p>
+            <p>
+              <a href="/contact" class="link link-hover">👉 Contact us </a>
+            </p>
+          </div>
+          <div>
+            <span class="footer-title">Social</span>
+            <div class="grid grid-flow-col gap-4">
             <a
               href="https://www.linkedin.com/groups/9507741/"
               target="_blank"
@@ -260,6 +261,10 @@ const searchItems: SearchItem[] = await Promise.all(
             </a>
           </div>
         </div>
+        </div>
+        <p class="text-sm opacity-60 mt-lg">
+          Anonymous stats via Cloudflare. No cookies.
+        </p>
       </div>
     </footer>
   </body>
