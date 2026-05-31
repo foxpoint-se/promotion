@@ -63,18 +63,6 @@ const searchItems: SearchItem[] = await Promise.all(
 <!doctype html>
 <html lang="en" class="scroll-smooth">
   <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ST131GRVWL"
-    ></script>
-    <script is:inline>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-
-      gtag("config", "G-ST131GRVWL");
-    </script>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
@@ -267,5 +255,12 @@ const searchItems: SearchItem[] = await Promise.all(
         </p>
       </div>
     </footer>
+    <!-- Cloudflare Web Analytics -->
+    <script
+      defer
+      src="https://static.cloudflareinsights.com/beacon.min.js"
+      data-cf-beacon='{"token": "09913776329142fba62f8dc4d41ab84b", "spa": false}'
+    ></script>
+    <!-- End Cloudflare Web Analytics -->
   </body>
 </html>
